@@ -3,7 +3,7 @@ import './App.css';
 import 'semantic-ui-css/semantic.min.css';
 import {
   Button, Icon, Divider, Progress, Header, Label, Grid, Image, Segment, List,
-  Dimmer, Loader, Rail, Reveal, Step
+  Dimmer, Loader, Rail, Reveal, Step, Embed
 } from 'semantic-ui-react'
 
 let timer;
@@ -192,6 +192,33 @@ class App extends Component {
           </Step>
         </Step.Group>
 
+        <div style={{width: 400 + 'px', height: 400 + 'px'}}>
+        <Embed
+          icon='youtube'
+          placeholder='https://react.semantic-ui.com/assets/images/wireframe/square-image.png'
+          url='http://k.youku.com/player/getFlvPath/sid/05108040918101256c991/st/mp4/fileid/03000A010059F35B1DDBC546388BD7586E99A2-0C63-4F62-5D17-4AAC172A524C?k=c80b0a59d5c4d7d1241335fb&hd=0&myp=0&ts=215&ctype=12&ev=1&token=0504&oip=3393307890&ep=cieVGkGNUs4J5CveiD8bYiqxfX4OXP4J9h%2BF8NJjALshQZ68nEzQs%2BnCPfpGEPoRelByF%2B75raXu%0AYzEWYfAwr2sQ2ziuO%2FrlivHk5akiteMBYRtHd8%2FTx1SeRjD1&ccode=0502&duration=215&expire=18000&psid=0620b194a7186d266f764f0ae9ab3446&ups_client_netip=ca41c4f2&ups_ts=1510804091&ups_userid=&utid=24aREvTvkAoCAcpBxPIPNN9D&vid=XMzExNDY3MTMxMg%3D%3D&vkey=A7f69391b920703f00f849c4072dac038'
+        />
+        </div>
+
+        <Grid columns={3} relaxed>
+          <Grid.Column>
+            <Segment basic>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
+            </Segment>
+          </Grid.Column>
+          <Divider vertical>Or</Divider>
+          <Grid.Column>
+            <Segment basic>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
+            </Segment>
+          </Grid.Column>
+          <Divider vertical>And</Divider>
+          <Grid.Column>
+            <Segment basic>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
+            </Segment>
+          </Grid.Column>
+      </Grid>
 
       </div>
     );
