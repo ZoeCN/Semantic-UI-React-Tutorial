@@ -3,7 +3,7 @@ import './App.css';
 import 'semantic-ui-css/semantic.min.css';
 import {
   Button, Icon, Divider, Progress, Header, Label, Grid, Image, Segment, List,
-  Dimmer, Loader, Rail, Reveal, Step, Embed
+  Dimmer, Loader, Rail, Reveal, Step, Embed, Menu
 } from 'semantic-ui-react'
 
 let timer;
@@ -12,6 +12,7 @@ class App extends Component {
   state = {
     value: 0,
     pause: false,
+    activeItem: 'tab1',
   };
   toggle = () => this.setState({ value: this.state.value < this.props.total ? this.state.value + 1 : this.props.total });
   onClickBtn = () => {
@@ -26,8 +27,10 @@ class App extends Component {
     this.setState({ value: 0, pause: false });
     clearInterval(timer);
   }
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
+    const { activeItem } = this.state
     return (
       <div className="App">
         <Header as='h1' icon>
@@ -200,25 +203,45 @@ class App extends Component {
         />
         </div>
 
-        <Grid columns={3} relaxed>
+        <Grid columns={5} relaxed>
           <Grid.Column>
             <Segment basic>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
             </Segment>
           </Grid.Column>
-          <Divider vertical>Or</Divider>
+          <Grid.Column>
+            <Divider vertical>Or</Divider>
+          </Grid.Column>
           <Grid.Column>
             <Segment basic>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
             </Segment>
           </Grid.Column>
-          <Divider vertical>And</Divider>
+          <Grid.Column>
+            <Divider vertical>And</Divider>
+          </Grid.Column>
           <Grid.Column>
             <Segment basic>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
             </Segment>
           </Grid.Column>
       </Grid>
+
+      <div>
+        <Menu attached='top' tabular>
+          <Menu.Item name='tab1' active={activeItem === 'tab1'} onClick={this.handleItemClick} />
+          <Menu.Item name='tab2' active={activeItem === 'tab2'} onClick={this.handleItemClick} />
+        </Menu>
+
+        {activeItem==='tab1'?
+          <Segment attached='bottom'>
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+          </Segment>:
+          <Segment attached='bottom'>
+            <h1>hhh</h1>
+          </Segment>
+        }
+      </div>
 
       </div>
     );
